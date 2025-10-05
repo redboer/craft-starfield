@@ -4,23 +4,25 @@
  *
  * Adds a simple star rating field.
  *
- * @link https://github.com/redboer
- * @copyright Copyright (c) Richard de Boer
+ * @link https://www.oberon.nl/
+ * @copyright Copyright (c) Oberon
  * @license MIT
  */
 
-namespace redboer\starfield;
+namespace oberon\starfield;
 
-use craft\events\RegisterComponentTypesEvent;
-use craft\services\Fields;
-use redboer\starfield\fields\StarField;
+use craft\base\Element;
+use craft\elements\Entry;
+use craft\events\RegisterElementSortOptionsEvent;
+use oberon\starfield\fields\StarField;
+
+use Craft;
+use \craft\services\Fields;
+use \craft\events\RegisterComponentTypesEvent;
 use yii\base\Event;
 
 /**
- * Starfield plugin
- *
- * @method static Plugin getInstance()
- * @method \redboer\starfield\models\Settings getSettings()
+ * Simple Text plugin
  */
 class Plugin extends \craft\base\Plugin
 {
@@ -30,53 +32,29 @@ class Plugin extends \craft\base\Plugin
     public string $schemaVersion = '1.0.1';
 
     /**
-     * @inheritdoc
+     * @var Plugin
      */
-    public bool $hasCpSettings = true;
+    public static Plugin $plugin;
 
     /**
      * @inheritdoc
      */
-    public function init(): void
+    public function init()
     {
         parent::init();
+        self::$plugin = $this;
 
-        // Defer most setup tasks until Craft is fully initialized
-        \Craft::$app->onInit(function() {
-            $this->attachEventHandlers();
-        });
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function createSettingsModel(): ?\craft\base\Model
-    {
-        return new \redboer\starfield\models\Settings();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function settingsHtml(): ?string
-    {
-        return \Craft::$app->view->renderTemplate('starfield/settings', [
-            'settings' => $this->getSettings(),
-        ]);
-    }
-
-    /**
-     * Attach event handlers
-     */
-    private function attachEventHandlers(): void
-    {
-        // Register field type
-        Event::on(
-            Fields::class,
-            Fields::EVENT_REGISTER_FIELD_TYPES,
-            function(RegisterComponentTypesEvent $event) {
+        // Register our fields
+        Event::on(Fields::class, Fields::EVENT_REGISTER_FIELD_TYPES,
+            function (RegisterComponentTypesEvent $event) {
                 $event->types[] = StarField::class;
             }
         );
+
+        Craft::info(
+            'starfield plugin loaded',
+            __METHOD__
+        );
     }
+
 }

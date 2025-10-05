@@ -1,7 +1,7 @@
 {
-  "name": "redboer/starfield",
+  "name": "oberon/starfield",
   "description": "This plugin adds a star rating field type to Craft CMS.",
-  "version": "3.0.0",
+  "version": "2.1.3",
   "type": "craft-plugin",
   "keywords": [
     "html",
@@ -14,33 +14,29 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Richard de Boer",
-      "homepage": "https://github.com/redboer"
+      "name": "Oberon",
+      "homepage": "https://www.oberon.nl/"
     }
   ],
   "support": {
-    "issues": "https://github.com/redboer/craft-starfield/issues?state=open",
-    "source": "https://github.com/redboer/craft-starfield",
-    "docs": "https://github.com/redboer/craft-starfield"
+    "email": "contact@oberon.nl",
+    "issues": "https://github.com/oberonamsterdam/craft-starfield/issues?state=open",
+    "source": "https://github.com/oberonamsterdam/craft-starfield",
+    "docs": "https://github.com/oberonamsterdam/craft-starfield"
   },
   "require": {
-    "craftcms/cms": "^5.0.0",
-    "php": "^8.2"
+    "craftcms/cms": "^4.0.0-alpha.1",
+    "php": "^8.0.2"
   },
   "autoload": {
     "psr-4": {
-      "redboer\\starfield\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "redboer\\starfield\\tests\\": "tests/"
+      "oberon\\starfield\\": "src/"
     }
   },
   "extra": {
     "name": "Starfield",
     "handle": "starfield",
-    "documentationUrl": "https://github.com/redboer/craft-starfield"
+    "documentationUrl": "https://github.com/oberonamsterdam/craft-starfield"
   },
   "config": {
     "allow-plugins": {
@@ -51,10 +47,6 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require-dev": {
-    "craftcms/rector": "dev-main",
-    "craftcms/phpstan": "dev-main"
-  },
-  "scripts": {
-    "phpstan": "phpstan analyse src --memory-limit=1G"
+    "craftcms/rector": "dev-main"
   }
 }

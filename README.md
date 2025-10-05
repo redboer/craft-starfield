@@ -1,6 +1,6 @@
 # Starfield Plugin for Craft CMS
 
-This plugin adds a new "Starfield" field type to Craft, which offers a simple star rating entry.
+This plugin adds a new “Starfield” field type to Craft, which offers a simple star rating entry.
 
 ## Starfield Features
 
@@ -10,7 +10,7 @@ This plugin adds a new "Starfield" field type to Craft, which offers a simple st
 
 ## Requirements
 
-This plugin requires Craft CMS 5.0 or later, and PHP 8.2 or later.
+This plugin requires Craft CMS 4.0 or later.
 
 ## Installation
 
@@ -18,7 +18,7 @@ You can install this plugin from the Plugin Store or with Composer.
 
 #### From the Plugin Store
 
-Go to the Plugin Store in your project's Control Panel and search for "Starfield". Then click on the "Install" button in its modal window.
+Go to the Plugin Store in your project’s Control Panel and search for “Starfield”. Then click on the “Install” button in its modal window.
 
 #### With Composer
 
@@ -34,3 +34,7 @@ composer require oberon/starfield
 # tell Craft to install the plugin
 php craft plugin/install starfield
 ```
+
+#### About the developer
+
+This plugin is developed by [Oberon](https://www.oberon.nl/).

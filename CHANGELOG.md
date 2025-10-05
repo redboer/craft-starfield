@@ -1,14 +1,5 @@
 # Release Notes for Starfield
 
-## 3.0.0 - 2025-10-05
-
-### Changed
-- Moved from oberron to redboer
-
-### Added
-- Support for Craft 5
-- Enhance UI for improved user experience
-
 ## 2.1.3 - 2024-11-13
 
 ### Removed
