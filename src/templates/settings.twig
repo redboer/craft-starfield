@@ -1,0 +1,40 @@
+{#
+/**
+ * Starfield plugin for Craft CMS
+ *
+ * Settings template
+ *
+ * @link https://github.com/redboer
+ * @copyright Copyright (c) Richard de Boer
+ * @license MIT
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% set title = "Starfield Settings"|t('starfield') %}
+{% set fullPageForm = true %}
+{% set saveShortcutRedirect = 'settings/plugins/starfield' %}
+
+{% block content %}
+    {{ csrfInput() }}
+    <input type="hidden" name="settings[allowZeroStars]" value="0">
+    {{ forms.lightswitchField({
+        label: 'Allow Zero Stars'|t('starfield'),
+        instructions: 'Allow users to deselect all stars and set the rating to 0. When disabled, users must select at least one star.'|t('starfield'),
+        id: 'allowZeroStars',
+        name: 'allowZeroStars',
+        on: settings.allowZeroStars ?? false,
+        value: 1,
+    }) }}
+
+    <input type="hidden" name="settings[showEmptyStars]" value="0">
+    {{ forms.lightswitchField({
+        label: 'Show Empty Stars'|t('starfield'),
+        instructions: 'Show empty stars (☆) alongside filled stars (⭐) in element index tables for fields with 5 or fewer stars.'|t('starfield'),
+        id: 'showEmptyStars',
+        name: 'showEmptyStars',
+        on: settings.showEmptyStars ?? true,
+        value: 1,
+    }) }}
+{% endblock %}
