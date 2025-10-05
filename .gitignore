@@ -1,0 +1,26 @@
+# Dependencies
+/vendor/
+composer.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PHPUnit
+.phpunit.cache/
+coverage/
+phpunit.xml.local
+
+# Testing
+tests/_craft/storage/
+tests/_craft/config/license.key
+
+# Build artifacts
+*.log
